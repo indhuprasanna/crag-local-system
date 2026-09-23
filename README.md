@@ -7,39 +7,9 @@ Unlike naive RAG pipelines that silently hallucinate when retrieved context is i
 ---
 
 ## 🏗️ System Architecture
-text
-[ User Query ]
-│
-▼
-[ Hybrid Retrieval Node ]
-┌───────────┴───────────┐
-▼                       ▼
-Dense (Chroma)      Sparse (BM25)
-└───────────┬───────────┘
-▼
-[ Reciprocal Rank Fusion ]
-│
-▼
-[ Document Grader Node ] ── (Evaluates Relevance)
-│
-┌───────┴───────────────────┐
-│ (Irrelevant)              │ (Relevant)
-▼                           │
-[ Web Search Node (DDG) ]         │
-│                           │
-└───────────┬───────────────┘
-▼
-[ Generation Node ]
-│
-▼
-[ Hallucination Grader ]
-│
-┌───────────┴───────────┐
-│ (Grounded)            │ (Hallucinated)
-▼                       ▼
-[ Output ]          [ Loop / Regenerate ]
 
----
+![Uploading image.png…]()
+
 
 ## 🔑 Key Engineering Highlights
 
